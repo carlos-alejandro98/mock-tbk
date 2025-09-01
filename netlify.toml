@@ -1,5 +1,5 @@
 [build]
-  command = "npm install"
+  command = "mkdir -p public && npm install"
   functions = "netlify/functions"
   publish = "public"
 
@@ -12,6 +12,21 @@
   status = 200
 
 [[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/api/:splat"
+  from = "/health"
+  to = "/.netlify/functions/api/health"
+  status = 200
+
+[[redirects]]
+  from = "/abonos/*"
+  to = "/.netlify/functions/api/abonos/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/transacciones/*"
+  to = "/.netlify/functions/api/transacciones/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/deuda-detalle"
+  to = "/.netlify/functions/api/deuda-detalle"
   status = 200
