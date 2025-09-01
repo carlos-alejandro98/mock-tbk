@@ -6,27 +6,83 @@
 [functions]
   node_bundler = "esbuild"
 
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/api/:splat"
-  status = 200
 
+# Health Check
 [[redirects]]
   from = "/health"
   to = "/.netlify/functions/api/health"
   status = 200
 
+# Abonos Endpoints
 [[redirects]]
-  from = "/abonos/*"
-  to = "/.netlify/functions/api/abonos/:splat"
+  from = "/abonos/cuentas"
+  to = "/.netlify/functions/api/abonos/cuentas"
   status = 200
 
 [[redirects]]
-  from = "/transacciones/*"
-  to = "/.netlify/functions/api/transacciones/:splat"
+  from = "/abonos-cuentas"
+  to = "/.netlify/functions/api/abonos-cuentas"
   status = 200
 
+[[redirects]]
+  from = "/abonos"
+  to = "/.netlify/functions/api/abonos"
+  status = 200
+
+[[redirects]]
+  from = "/abonos-detalle"
+  to = "/.netlify/functions/api/abonos-detalle"
+  status = 200
+
+[[redirects]]
+  from = "/abonos-local"
+  to = "/.netlify/functions/api/abonos-local"
+  status = 200
+
+[[redirects]]
+  from = "/abonos-resumen-local"
+  to = "/.netlify/functions/api/abonos-resumen-local"
+  status = 200
+
+# Transacciones Endpoints
+[[redirects]]
+  from = "/transacciones"
+  to = "/.netlify/functions/api/transacciones"
+  status = 200
+
+[[redirects]]
+  from = "/transacciones-pendientes"
+  to = "/.netlify/functions/api/transacciones-pendientes"
+  status = 200
+
+[[redirects]]
+  from = "/transacciones/abonos"
+  to = "/.netlify/functions/api/transacciones/abonos"
+  status = 200
+
+[[redirects]]
+  from = "/transacciones-cantidad"
+  to = "/.netlify/functions/api/transacciones-cantidad"
+  status = 200
+
+[[redirects]]
+  from = "/transacciones-resumen"
+  to = "/.netlify/functions/api/transacciones-resumen"
+  status = 200
+
+[[redirects]]
+  from = "/transaccion-encabezado"
+  to = "/.netlify/functions/api/transaccion-encabezado"
+  status = 200
+
+# Otros Endpoints
 [[redirects]]
   from = "/deuda-detalle"
   to = "/.netlify/functions/api/deuda-detalle"
+  status = 200
+
+# Generic API catch-all (should be last)
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
   status = 200
