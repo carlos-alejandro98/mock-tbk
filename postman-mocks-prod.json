@@ -1,0 +1,503 @@
+{
+  "info": {
+    "name": "Mocks Masivo TBK",
+    "description": "Colección de Postman para probar todos los endpoints de la API de abonos y transacciones desplegada en Netlify con URLs simplificadas",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "noauth"
+  },
+  "item": [
+    {
+      "name": "Abonos",
+      "item": [
+        {
+          "name": "Get Abonos Cuentas",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response has correct structure\", function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('meta');",
+                  "    pm.expect(jsonData).to.have.property('data');",
+                  "    pm.expect(jsonData).to.have.property('links');",
+                  "});",
+                  "",
+                  "pm.test(\"Meta contains required fields\", function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.meta).to.have.property('_msgId');",
+                  "    pm.expect(jsonData.meta).to.have.property('_version');",
+                  "    pm.expect(jsonData.meta).to.have.property('_rqDateTime');",
+                  "    pm.expect(jsonData.meta).to.have.property('_clientId');",
+                  "});",
+                  "",
+                  "pm.test(\"Data array contains account information\", function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.data).to.be.an('array');",
+                  "    pm.expect(jsonData.data[0]).to.have.property('numeroCuenta');",
+                  "    pm.expect(jsonData.data[0]).to.have.property('tipoCuenta');",
+                  "    pm.expect(jsonData.data[0]).to.have.property('codigoBanco');",
+                  "    pm.expect(jsonData.data[0]).to.have.property('moneda');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{base_url}}/abonos/cuentas",
+              "host": ["{{base_url}}"],
+              "path": ["abonos", "cuentas"]
+            },
+            "description": "Obtiene la información de cuentas de abonos"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Abonos Cuentas (Alternative)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{base_url}}/abonos-cuentas",
+              "host": ["{{base_url}}"],
+              "path": ["abonos-cuentas"]
+            },
+            "description": "Obtiene información detallada de cuentas de abonos con montos"
+          }
+        },
+        {
+          "name": "Get Abonos",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{base_url}}/abonos",
+              "host": ["{{base_url}}"],
+              "path": ["abonos"]
+            },
+            "description": "Obtiene información general de abonos"
+          }
+        },
+        {
+          "name": "Get Abonos Detalle",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{base_url}}/abonos-detalle",
+              "host": ["{{base_url}}"],
+              "path": ["abonos-detalle"]
+            },
+            "description": "Obtiene el detalle completo de abonos con totales y desglose"
+          }
+        },
+        {
+          "name": "Post Abonos Local",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fechaDesde\": \"2025-08-27\",\n  \"fechaHasta\": \"2025-08-27\",\n  \"rut\": \"898622002\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/abonos-local",
+              "host": ["{{base_url}}"],
+              "path": ["abonos-local"]
+            },
+            "description": "Obtiene abonos agrupados por local/comercio"
+          }
+        },
+        {
+          "name": "Post Abonos Resumen Local",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fechaDesde\": \"2025-08-27\",\n  \"fechaHasta\": \"2025-08-27\",\n  \"rut\": \"898622002\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/abonos-resumen-local",
+              "host": ["{{base_url}}"],
+              "path": ["abonos-resumen-local"]
+            },
+            "description": "Obtiene resumen detallado de abonos por local con totales"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Transacciones",
+      "item": [
+        {
+          "name": "Post Transacciones",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fechaDesde\": \"2025-08-27\",\n  \"fechaHasta\": \"2025-08-27\",\n  \"rut\": \"898622002\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/transacciones",
+              "host": ["{{base_url}}"],
+              "path": ["transacciones"]
+            },
+            "description": "Obtiene listado de transacciones"
+          }
+        },
+        {
+          "name": "Post Transacciones Pendientes",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fechaDesde\": \"2025-08-27\",\n  \"fechaHasta\": \"2025-08-27\",\n  \"rut\": \"898622002\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/transacciones-pendientes",
+              "host": ["{{base_url}}"],
+              "path": ["transacciones-pendientes"]
+            },
+            "description": "Obtiene contadores de transacciones pendientes y procesadas"
+          }
+        },
+        {
+          "name": "Post Transacciones Resumen",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fechaDesde\": \"2025-08-25\",\n  \"fechaHasta\": \"2025-08-27\",\n  \"rut\": \"898622002\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/transacciones-resumen",
+              "host": ["{{base_url}}"],
+              "path": ["transacciones-resumen"]
+            },
+            "description": "Obtiene resumen de transacciones con detalles de abonos"
+          }
+        },
+        {
+          "name": "Get Transaccion Encabezado",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{base_url}}/transaccion-encabezado",
+              "host": ["{{base_url}}"],
+              "path": ["transaccion-encabezado"]
+            },
+            "description": "Obtiene información de encabezado de transacciones"
+          }
+        },
+        {
+          "name": "Post Transacciones Abonos",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fechaDesde\": \"2025-08-27\",\n  \"fechaHasta\": \"2025-08-27\",\n  \"rut\": \"898622002\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/transacciones/abonos",
+              "host": ["{{base_url}}"],
+              "path": ["transacciones", "abonos"]
+            },
+            "description": "Obtiene transacciones de abonos con detalles completos"
+          }
+        },
+        {
+          "name": "Post Transacciones Cantidad",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fechaDesde\": \"2025-08-27\",\n  \"fechaHasta\": \"2025-08-27\",\n  \"rut\": \"898622002\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/transacciones-cantidad",
+              "host": ["{{base_url}}"],
+              "path": ["transacciones-cantidad"]
+            },
+            "description": "Obtiene cantidad y estadísticas de transacciones"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Otros",
+      "item": [
+        {
+          "name": "Get Deuda Detalle",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{base_url}}/deuda-detalle",
+              "host": ["{{base_url}}"],
+              "path": ["deuda-detalle"]
+            },
+            "description": "Obtiene detalle de deudas y cobros de servicios"
+          }
+        },
+        {
+          "name": "Post Deuda Detalle",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
+              }
+            ],
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fechaDesde\": \"2025-08-27\",\n  \"fechaHasta\": \"2025-08-27\",\n  \"rut\": \"898622002\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/deuda-detalle",
+              "host": ["{{base_url}}"],
+              "path": ["deuda-detalle"]
+            },
+            "description": "Obtiene detalle extendido de deudas con información adicional"
+          }
+        },
+        {
+          "name": "Health Check",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Server is healthy\", function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.status).to.eql('OK');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "url": {
+              "raw": "{{base_url}}/health",
+              "host": ["{{base_url}}"],
+              "path": ["health"]
+            },
+            "description": "Verifica que el servidor esté funcionando correctamente (sin autenticación)"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://mock-masivo-tbk.netlify.app",
+      "type": "string"
+    }
+  ]
+}
