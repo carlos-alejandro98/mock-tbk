@@ -1,20 +1,25 @@
 {
   "info": {
     "name": "Abonos API",
-    "description": "Colección de Postman para probar todos los endpoints de la API de abonos y transacciones con autenticación básica",
+    "description": "Colección de Postman para probar todos los endpoints de la API de abonos y transacciones con autenticación por Client ID",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "auth": {
-    "type": "basic",
-    "basic": [
+    "type": "apikey",
+    "apikey": [
       {
-        "key": "username",
-        "value": "userTbk",
+        "key": "key",
+        "value": "X-Client-ID",
         "type": "string"
       },
       {
-        "key": "password",
-        "value": "tbk2025",
+        "key": "value",
+        "value": "1613627a543c5e2697c350cecb5f5b29",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
         "type": "string"
       }
     ]
@@ -68,17 +73,17 @@
               {
                 "key": "Content-Type",
                 "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
               }
             ],
             "url": {
               "raw": "{{base_url}}/abonos/cuentas",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "abonos",
-                "cuentas"
-              ]
+              "host": ["{{base_url}}"],
+              "path": ["abonos", "cuentas"]
             },
             "description": "Obtiene la información de cuentas de abonos"
           },
@@ -92,16 +97,17 @@
               {
                 "key": "Content-Type",
                 "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
               }
             ],
             "url": {
               "raw": "{{base_url}}/abonos-cuentas",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "abonos-cuentas"
-              ]
+              "host": ["{{base_url}}"],
+              "path": ["abonos-cuentas"]
             },
             "description": "Obtiene información detallada de cuentas de abonos con montos"
           }
@@ -114,16 +120,17 @@
               {
                 "key": "Content-Type",
                 "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
               }
             ],
             "url": {
               "raw": "{{base_url}}/abonos",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "abonos"
-              ]
+              "host": ["{{base_url}}"],
+              "path": ["abonos"]
             },
             "description": "Obtiene información general de abonos"
           }
@@ -136,16 +143,17 @@
               {
                 "key": "Content-Type",
                 "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
               }
             ],
             "url": {
               "raw": "{{base_url}}/abonos-detalle",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "abonos-detalle"
-              ]
+              "host": ["{{base_url}}"],
+              "path": ["abonos-detalle"]
             },
             "description": "Obtiene el detalle completo de abonos con totales y desglose"
           }
@@ -158,6 +166,11 @@
               {
                 "key": "Content-Type",
                 "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
               }
             ],
             "body": {
@@ -166,12 +179,8 @@
             },
             "url": {
               "raw": "{{base_url}}/abonos-local",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "abonos-local"
-              ]
+              "host": ["{{base_url}}"],
+              "path": ["abonos-local"]
             },
             "description": "Obtiene abonos agrupados por local/comercio"
           }
@@ -184,6 +193,11 @@
               {
                 "key": "Content-Type",
                 "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
               }
             ],
             "body": {
@@ -192,12 +206,8 @@
             },
             "url": {
               "raw": "{{base_url}}/abonos-resumen-local",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "abonos-resumen-local"
-              ]
+              "host": ["{{base_url}}"],
+              "path": ["abonos-resumen-local"]
             },
             "description": "Obtiene resumen detallado de abonos por local con totales"
           }
@@ -215,6 +225,11 @@
               {
                 "key": "Content-Type",
                 "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
               }
             ],
             "body": {
@@ -223,12 +238,8 @@
             },
             "url": {
               "raw": "{{base_url}}/transacciones",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "transacciones"
-              ]
+              "host": ["{{base_url}}"],
+              "path": ["transacciones"]
             },
             "description": "Obtiene listado de transacciones"
           }
@@ -241,6 +252,11 @@
               {
                 "key": "Content-Type",
                 "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
               }
             ],
             "body": {
@@ -249,12 +265,8 @@
             },
             "url": {
               "raw": "{{base_url}}/transacciones-pendientes",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "transacciones-pendientes"
-              ]
+              "host": ["{{base_url}}"],
+              "path": ["transacciones-pendientes"]
             },
             "description": "Obtiene contadores de transacciones pendientes y procesadas"
           }
@@ -267,6 +279,11 @@
               {
                 "key": "Content-Type",
                 "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
               }
             ],
             "body": {
@@ -275,12 +292,8 @@
             },
             "url": {
               "raw": "{{base_url}}/transacciones-resumen",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "transacciones-resumen"
-              ]
+              "host": ["{{base_url}}"],
+              "path": ["transacciones-resumen"]
             },
             "description": "Obtiene resumen de transacciones con detalles de abonos"
           }
@@ -293,16 +306,17 @@
               {
                 "key": "Content-Type",
                 "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
               }
             ],
             "url": {
               "raw": "{{base_url}}/transaccion-encabezado",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "transaccion-encabezado"
-              ]
+              "host": ["{{base_url}}"],
+              "path": ["transaccion-encabezado"]
             },
             "description": "Obtiene información de encabezado de transacciones"
           }
@@ -315,6 +329,11 @@
               {
                 "key": "Content-Type",
                 "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
               }
             ],
             "body": {
@@ -323,13 +342,8 @@
             },
             "url": {
               "raw": "{{base_url}}/transacciones/abonos",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "transacciones",
-                "abonos"
-              ]
+              "host": ["{{base_url}}"],
+              "path": ["transacciones", "abonos"]
             },
             "description": "Obtiene transacciones de abonos con detalles completos"
           }
@@ -342,6 +356,11 @@
               {
                 "key": "Content-Type",
                 "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
               }
             ],
             "body": {
@@ -350,12 +369,8 @@
             },
             "url": {
               "raw": "{{base_url}}/transacciones-cantidad",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "transacciones-cantidad"
-              ]
+              "host": ["{{base_url}}"],
+              "path": ["transacciones-cantidad"]
             },
             "description": "Obtiene cantidad y estadísticas de transacciones"
           }
@@ -373,16 +388,17 @@
               {
                 "key": "Content-Type",
                 "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
               }
             ],
             "url": {
               "raw": "{{base_url}}/deuda-detalle",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "deuda-detalle"
-              ]
+              "host": ["{{base_url}}"],
+              "path": ["deuda-detalle"]
             },
             "description": "Obtiene detalle de deudas y cobros de servicios"
           }
@@ -395,6 +411,11 @@
               {
                 "key": "Content-Type",
                 "value": "application/json"
+              },
+              {
+                "key": "X-Client-ID",
+                "value": "1613627a543c5e2697c350cecb5f5b29",
+                "type": "string"
               }
             ],
             "body": {
@@ -403,12 +424,8 @@
             },
             "url": {
               "raw": "{{base_url}}/deuda-detalle",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "deuda-detalle"
-              ]
+              "host": ["{{base_url}}"],
+              "path": ["deuda-detalle"]
             },
             "description": "Obtiene detalle extendido de deudas con información adicional"
           }
@@ -441,12 +458,8 @@
             },
             "url": {
               "raw": "{{base_url}}/health",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "health"
-              ]
+              "host": ["{{base_url}}"],
+              "path": ["health"]
             },
             "description": "Verifica que el servidor esté funcionando correctamente (sin autenticación)"
           },
